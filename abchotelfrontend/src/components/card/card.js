@@ -1,191 +1,76 @@
-// import React, {useState} from "react";
-// import "./style.css";
-// import axios from "axios";
-// import Modal from 'react-modal';
-// import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
-// import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
-// import LocalDiningIcon from '@mui/icons-material/LocalDining';
-// import RepeatOnIcon from '@mui/icons-material/RepeatOn';
-// import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-// import { Circle } from "../../helper";
-
-// const customStyles = {
-//   content: {
-//     top: '50%',
-//     left: '50%',
-//     right: 'auto',
-//     bottom: 'auto',
-//     marginRight: '-50%',
-//     transform: 'translate(-50%, -50%)',
-//     width:'300px'
-//   },
-// };
-
-// const Card = (props) => {
-//   const {
-//     username="Rajesh",
-//     goal = "Routine Cleaning",
-//     data="21 Jul 2024 | 03:00 am",
-//     id="#68988",
-//     delay="20",
-//     task="Guest Task",
-//     rating="2"
-//   } = props;
-
-//   let subtitle;
-
-//   const [modalIsOpen, setIsOpen] = useState(false);
-//   const [status, setStatus] = useState('');
-
-//   function openModal() {
-//     setIsOpen(true);
-//   }
-
-//   // function afterOpenModal() {
-//   //   // references are now sync'd and can be accessed.
-//   //   subtitle.style.color = '#f00';
-//   // }
-
-//   const handleSubmit = async () => {
-//     try {
-//       await axios.put('http://localhost:8000/update', {
-//         id: props.id,
-//         status: status
-//       });
-//       closeModal();
-//     } catch (error) {
-//       console.error('Error updating status:', error);
-//       // Handle error
-//     }
-//   };
-
-//   function closeModal() {
-//     setIsOpen(false);
-//   }
-
-//   return (
-//     <div className="card_container">
-//       <div className="d-flex justify-content-between">
-//        <div className="d-flex align-items-center" style={{background:"#F7F7F7"}}>
-//        <LocalDiningIcon style={{...styles.icon, color:"#5F69C7"}} />
-//         <span style={styles.usernameTitleStyle} className="d-flex align-items-center">{username}</span>
-//         <Circle/>
-//        </div>
-//         <span onClick={openModal} style={{...styles.notAcceptedTitleStyle,background:"#F7F7F7"}}>Not Accepted</span>
-//         <RepeatOnIcon style={{...styles.icon, color:"#767676", marginLeft:"-.8rem"}}/>
-//         <span className="d-flex align-items-center justify-content-end pe-1" style={{width:"25%", color:"#00A441", background:"#D7FFE7", fontSize:"12px"}}> <AccessTimeFilledIcon style={{...styles.icon, color:"#00A441", background:"#D7FFE7"}}/> {delay} min</span>
-//       </div>
-//       {/* routine */}
-//       <div className="d-flex mt-2 justify-content-between">
-//         <h3 style={styles.goalTitleStyle} className="user_name">{goal}</h3>
-//         <div style={styles.guestTaskTitleStyle}>{task}</div>
-//       </div>
-//       {/* date & time  */}
-//       <div className="d-flex mt-1 justify-content-between align-items-center">
-//         <div style={styles.dateTitleStyle}><CalendarTodayIcon style={styles.icon} /><span> {data}</span></div>
-//         <span style={styles.dateTitleStyle}>{id}</span>
-//       </div>
-//       {/* transmit */}
-//       <div className="d-flex justify-content-between align-items-center">
-//         <span style={styles.transmitStyle}>From:Pantry</span>
-//         <span style={styles.transmitStyle}>To:Reception</span>
-//       </div>
-//       {/* button */}
-//       <div className="buttons_box">
-//       {!!1 &&  <button style={styles.buttonStyle('#5F69C7')}> <span> <CheckCircleIcon/></span> Notify Staff</button>}
-//       {!!0 &&  <button style={styles.viewDetailBtnStyle}> View Details</button>}
-//       </div>
-//       <Modal
-//         isOpen={modalIsOpen}
-//         // onAfterOpen={afterOpenModal}
-//         onRequestClose={closeModal}
-//         style={customStyles}
-//         contentLabel="Example Modal"
-//       >
-//         <form>
-//         <div className="form-group col-md-6">
-//           <label htmlFor="inputState">Change Status</label>
-//           <select id="inputState" className="form-control" name="itemRequest">
-//             <option selected>Choose...</option>
-//             <option>Not Accepted</option>
-//             <option>Ongoing</option>
-//             <option>Scheduled</option>
-//             <option>Completed</option>
-//             <option>Delayed</option>
-//             <option>Ontime</option>
-//           </select>
-//         </div>
-//         <button onClick={handleSubmit}>submit</button>
-//         </form>
-//       </Modal>
-//     </div>
-
-//   );
-// };
-
-// export default Card;
-
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, {useState} from "react";
 import "./style.css";
-import Modal from "react-modal";
-import AccessTimeFilledIcon from "@mui/icons-material/AccessTimeFilled";
-import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
-import LocalDiningIcon from "@mui/icons-material/LocalDining";
-import RepeatOnIcon from "@mui/icons-material/RepeatOn";
-import CheckCircleIcon from "@mui/icons-material/CheckCircle";
+import axios from "axios";
+import Modal from 'react-modal';
+import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
+import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
+import LocalDiningIcon from '@mui/icons-material/LocalDining';
+import RepeatOnIcon from '@mui/icons-material/RepeatOn';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { Circle } from "../../helper";
 
 const customStyles = {
   content: {
-    top: "50%",
-    left: "50%",
-    right: "auto",
-    bottom: "auto",
-    marginRight: "-50%",
-    transform: "translate(-50%, -50%)",
-    width: "300px",
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+    width:'300px'
   },
 };
 
-const Card = () => {
-  const [tasks, setTasks] = useState([]);
+
+
+const Card = (props) => {
+  const {
+    taskId='1',
+    userName="Rajesh",
+    serviceRequest = "Routine Cleaning",
+    selectedDateTime="21 Jul 2024 | 03:00 am",
+    cardId="68988",
+    delay="20",
+    task="Guest Task",
+    rating="2",
+    status='status',
+    itemRequest='item req',
+  } = props;
+
+  console.log("props", props);
+
+
   const [modalIsOpen, setIsOpen] = useState(false);
-  const [selectedTask, setSelectedTask] = useState(null);
-  const [status, setStatus] = useState("");
+  // const [selectedTask, setSelectedTask] = useState(null);
+  // const [stat, setStat] = useState("");
+  // //const [status, setStatus] = useState('');
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  // function openModal() {
+  //   setIsOpen(true);
+  // }
 
-  const fetchData = async () => {
-    try {
-      const response = await axios.get("http://localhost:8000/allTasks");
-      setTasks(response.data);
-      console.log(response.data)
-    } catch (error) {
-      console.error("Error fetching tasks:", error);
-    }
-  };
+  // // function afterOpenModal() {
+  // //   // references are now sync'd and can be accessed.
+  // //   subtitle.style.color = '#f00';
+  // // }
 
-  const openModal = (task) => {
-    setSelectedTask(task);
-    setIsOpen(true);
-  };
+  // const openModal = (task) => {
+  //   setSelectedTask(task);
+  //   setIsOpen(true);
+  // };
 
-  const handleSubmit = async (id, status) => {
-    try {
-      const data = await axios.put("http://localhost:8000/update", {
-        id: id,
-        status: status,
-      });
-      console.log(status);
-      setIsOpen(false);
-      fetchData(); // Refresh data after update
-    } catch (error) {
-      console.error("Error updating status:", error);
-    }
-  };
+  // const handleSubmit = async (taskId, status) => {
+  //   try {
+  //     const data = await axios.put("http://localhost:8000/update", {
+  //       id: taskId,
+  //       status: status,
+  //     });
+  //     console.log("status is",status);
+  //     setIsOpen(false);
+  //   } catch (error) {
+  //     console.error("Error updating status:", error);
+  //   }
+  // };
 
   const handleNotify = async (id) => {
     try {
@@ -193,29 +78,26 @@ const Card = () => {
         id: id,
       });
       setIsOpen(false);
-      fetchData(); // Refresh data after update
     } catch (error) {
       console.error("Error updating status:", error);
     }
   };
 
-  const closeModal = () => {
-    setIsOpen(false);
-  };
+  // const closeModal = () => {
+  //   setIsOpen(false);
+  // };
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
+    console.log(dateString)
     return `${date.getDate()}-${
       date.getMonth() + 1
-    }-${date.getFullYear()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+    }-${date.getFullYear()} | ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
   };
-
   return (
-    <>
-      {tasks.map((task) => (
-        <div className="col-sm-12 col-lg-4">
-          <div className="card_container m-4 rounded" key={task._id}>
-            <div className="d-flex justify-content-between rounded">
+    // <div className="col-sm-12 col-lg-4">
+          <div className="card_container m-4 rounded" key={taskId}>
+            <div className="d-flex justify-content-between rounded" style={{alignItems: "center"}}>
               <div
                 className="d-flex align-items-center"
                 style={{ background: "#F7F7F7" }}
@@ -238,12 +120,12 @@ const Card = () => {
                   }}
                   className="d-flex align-items-center"
                 >
-                  {task.userName}
+                  {userName}
                 </span>
                 <Circle />
               </div>
               <span
-                onClick={() => openModal(task)}
+                // onClick={() => openModal(task)}
                 style={{
                   color: "#CC2610",
                   font: "Montserrat",
@@ -255,7 +137,7 @@ const Card = () => {
                   background: "#F7F7F7",
                 }}
               >
-                {task.status}
+                {status}
               </span>
               <RepeatOnIcon
                 style={{
@@ -269,9 +151,10 @@ const Card = () => {
                 className="d-flex align-items-center justify-content-end pe-1"
                 style={{
                   width: "25%",
-                  color: "#00A441",
-                  background: "#D7FFE7",
+                  color:  parseInt(delay)<3 ? "#CC2610":"#00A441",
+                  background:  parseInt(delay)<3 ? "#F4D8D8":"#D7FFE7",
                   fontSize: "12px",
+                  borderRadius: "20px"
                 }}
               >
                 {" "}
@@ -279,12 +162,12 @@ const Card = () => {
                   style={{
                     width: "14px",
                     height: "14px",
-                    color: "#00A441",
-                    background: "#D7FFE7",
-                    margin: "5px 2px",
+                    color:  parseInt(delay)<3 ? "#CC2610":"#00A441",
+                    background:  parseInt(delay)<3 ? "#F4D8D8":"#D7FFE7",
+                    margin: "5px 2px"
                   }}
                 />{" "}
-                {task.delay} min
+                {delay} min
               </span>
             </div>
             <div className="d-flex mt-2 justify-content-between">
@@ -299,7 +182,7 @@ const Card = () => {
                 }}
                 className="user_name"
               >
-                {task.serviceRequest}
+                {serviceRequest}
               </h3>
               <div
                 style={{
@@ -312,7 +195,7 @@ const Card = () => {
                   background: "#F7F7F7",
                 }}
               >
-                {task.task}
+                {task}
               </div>
             </div>
             <div className="d-flex mt-1 justify-content-between align-items-center">
@@ -336,7 +219,7 @@ const Card = () => {
                     margin: "5px 2px",
                   }}
                 />
-                <span> {formatDate(task.selectedDateTime)}</span>
+                <span> {formatDate(selectedDateTime)}</span>
               </div>
               <span
                 style={{
@@ -350,7 +233,7 @@ const Card = () => {
                   alignItems: "center",
                 }}
               >
-                #{task.cardId}
+                #{cardId}
               </span>
             </div>
             <div className="d-flex justify-content-between align-items-center">
@@ -381,7 +264,7 @@ const Card = () => {
               <button
                 style={{
                   width: "100%",
-                  background: "#5F69C7",
+                  background: parseInt(delay)<3 ? "#CC2610":"#5F69C7",
                   color: "#fff",
                   borderRadius: "20px",
                   border: "none",
@@ -402,7 +285,7 @@ const Card = () => {
                 Notify Staff
               </button>
             </div>
-            <Modal
+            {/* <Modal
               isOpen={modalIsOpen}
               onRequestClose={closeModal}
               style={customStyles}
@@ -415,7 +298,7 @@ const Card = () => {
                     id="inputState"
                     className="form-control"
                     name="status"
-                    onChange={(e) => setStatus(e.target.value)}
+                    onChange={(e) =>{}}
                   >
                     <option value="">Choose...</option>
                     <option value="Not Accepted">Not Accepted</option>
@@ -428,7 +311,7 @@ const Card = () => {
                 </div>
                 <button
                   type="button"
-                  onClick={() => handleSubmit(task._id, status)}
+                  onClick={() => handleSubmit(taskId, status)}
                 >
                   Submit
                 </button>
@@ -436,15 +319,15 @@ const Card = () => {
                   Close
                 </button>
               </form>
-            </Modal>
+            </Modal> */}
           </div>
-        </div>
-      ))}
-    </>
+        // </div>
   );
 };
 
 export default Card;
+
+
 
 const styles = {
   icon: {

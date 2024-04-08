@@ -60,10 +60,59 @@ exports.notify = async (req, res) => {
   };
   
 
-exports.filterTasksByStatus = async (req, res) => {
+exports.filterNotAccepted = async (req, res) => {
   try {
-    const { status } = req.body;
-    const tasks = await TaskModel.find({ status });
+    const tasks = await TaskModel.find({ status: "Not Accepted" });
+    res.status(200).json(tasks);
+  } catch (error) {
+    console.error("Error filtering tasks by status:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+exports.filterScheduled = async (req, res) => {
+  try {
+    const tasks = await TaskModel.find({ status: "Scheduled" });
+    res.status(200).json(tasks);
+  } catch (error) {
+    console.error("Error filtering tasks by status:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+exports.filterOngoing = async (req, res) => {
+  try {
+    const tasks = await TaskModel.find({ status: "Ongoing" });
+    res.status(200).json(tasks);
+  } catch (error) {
+    console.error("Error filtering tasks by status:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+exports.filterCompleted = async (req, res) => {
+  try {
+    const tasks = await TaskModel.find({ status: "Completed" });
+    res.status(200).json(tasks);
+  } catch (error) {
+    console.error("Error filtering tasks by status:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+exports.filterDelayed = async (req, res) => {
+  try {
+    const tasks = await TaskModel.find({ status: "Delayed" });
+    res.status(200).json(tasks);
+  } catch (error) {
+    console.error("Error filtering tasks by status:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+
+exports.filterOnTime = async (req, res) => {
+  try {
+    const tasks = await TaskModel.find({ status: "Ontime" });
     res.status(200).json(tasks);
   } catch (error) {
     console.error("Error filtering tasks by status:", error);

@@ -32,3 +32,12 @@ border:1px solid #CC2610;
 border-radius:50%;
 background:#CC2610;
 `
+
+export const gridStyle = {
+    display: "grid",
+  gridTemplateColumns: "repeat(3, 1fr)",
+  gap: "10px",
+  gridAutoRows: "minmax(100px, auto)"
+}
+
+export const sideTitleStyle = {fontWeight:"600", fontSize:"16px", lineHeight:"20px", font:"Encode Sans Expanded", color:"#1A0A02"}
