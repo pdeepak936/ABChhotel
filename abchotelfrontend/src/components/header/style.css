@@ -1,0 +1,44 @@
+.header {
+    background-color: rgb(248, 247, 247);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  
+  .header_logo {
+    color: #1a0a02;
+    margin-left: 4rem;
+      font-family: "Poppins", sans-serif;
+      font-weight: 700;
+      font-style: normal;
+  }
+  
+  .header_pages {
+    display: flex;
+    align-items: center;
+  }
+  
+  .header_pages > .navlink {
+    display: flex;
+    align-items: center;
+    margin: 0 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #181818;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  
+  .header_button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 15%;
+  }
+  
+
+  

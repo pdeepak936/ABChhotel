@@ -1,0 +1,30 @@
+.main-page>.task-title{
+    font-size: 26px;
+    padding: 1rem 0.5rem;
+    /* color: #1111; */
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.all_task{
+    display: flex;
+    align-items: center;
+}
+
+.all_task > .all_task_tab {
+    display: flex;
+    align-items: center;
+    margin: 0 10px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #666565;
+    cursor: pointer;
+    text-decoration: none;
+    border: 1px solid #666565;
+    padding: 5px 10px;
+    border-radius: 10rem;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    font-style: normal;
+  }

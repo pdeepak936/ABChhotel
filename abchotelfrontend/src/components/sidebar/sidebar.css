@@ -1,0 +1,9 @@
+.desplaynone{
+    display: block;
+    
+}
+@media only screen and (max-width: 600px) {
+    .desplaynone{
+        display: none;
+    }
+  }

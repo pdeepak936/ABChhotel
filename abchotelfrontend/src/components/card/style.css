@@ -1,0 +1,37 @@
+.card_container {
+    border: 0.7px solid lightgrey;
+    height: auto;
+    width: 300px;
+    background-color: #ffffff;
+    padding:8px;
+    margin-bottom: 10px;
+    /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
+    box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+    border-radius: 12px;
+  }
+  
+  .user_info_box {
+    background-color: #fff;
+    border: 0.7px solid lightgrey;
+    padding: 15px 0;
+  }
+  
+  .buttons_box {
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  
+  h3,
+  p,
+  s {
+    padding: 0;
+    margin: 0;
+  }
+  
+  @media (width<500px) {
+    .card_container{
+      padding:0;
+      margin-bottom:10px;
+    }
+    }
