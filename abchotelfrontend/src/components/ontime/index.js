@@ -12,7 +12,7 @@ const Ontime = () => {
   React.useEffect(()=>{
       (async()=>{
           try {
-              const data = await axios.get("http://localhost:8000/filterOntime");
+              const data = await axios.get("https://abchotelbackend.onrender.com/filterOntime");
               //let jsonData=await data;
               setData(data.data);
             } catch (error) {
@@ -22,7 +22,7 @@ const Ontime = () => {
   },[])
   
 return (
-  <div className="col-sm-12 col-lg-4" style={gridStyle}>
+  <div className="row">
     {!!data?.length &&  data.map((task) => {
       return  <MainCard
       taskId={task._id}

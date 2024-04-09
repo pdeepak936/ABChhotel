@@ -11,7 +11,7 @@ const Delayed = () => {
   React.useEffect(()=>{
       (async()=>{
           try {
-              const data = await axios.get("http://localhost:8000/filterDelayed");
+              const data = await axios.get("https://abchotelbackend.onrender.com/filterDelayed");
               //let jsonData=await data;
               setData(data.data);
             } catch (error) {
@@ -21,7 +21,7 @@ const Delayed = () => {
   },[])
   
 return (
-  <div className="col-sm-12 col-lg-4" style={gridStyle}>
+  <div className="row">
     {!!data?.length &&  data.map((task) => {
       return  <MainCard
       taskId={task._id}

@@ -33,7 +33,7 @@ function Form() {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:8000/submitForm', {
+      const response = await fetch('https://abchotelbackend.onrender.com/submitForm', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -54,10 +54,10 @@ function Form() {
   };
 
   return (
-    <div className="mt-5" style={{}}>
+    <div className="" style={{width: "100%"}}>
       <form
-        className="mt-5 p-5"
-        style={{ backgroundColor: "grey", border: "1px solid black", margin: "20px 400px" }}
+        className="p-5"
+        style={{ backgroundColor: "grey", border: "1px solid black", margin: "20px 40px" }}
         onSubmit={handleSubmit}
       >
         <div className="form-row">

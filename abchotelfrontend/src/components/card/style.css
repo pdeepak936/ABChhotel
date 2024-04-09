@@ -1,13 +1,13 @@
 .card_container {
     border: 0.7px solid lightgrey;
     height: auto;
-    width: 300px;
+    width: 350px;
     background-color: #ffffff;
     padding:8px;
     margin-bottom: 10px;
     /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
-    border-radius: 12px;
+    border-radius: 20px;
   }
   
   .user_info_box {
@@ -19,6 +19,7 @@
   .buttons_box {
     display: flex;
     justify-content: space-around;
+    margin-bottom: 5px;
   }
   
   

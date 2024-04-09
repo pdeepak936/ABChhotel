@@ -33,7 +33,7 @@ const Card = () => {
   React.useEffect(()=>{
     (async()=>{
         try {
-            const data = await axios.get("http://localhost:8000/tasksByStatus", {
+            const data = await axios.get("https://abchotelbackend.onrender.com/tasksByStatus", {
               data:{status: "Scheduled"}
             });
             console.log('schedule', data?.data);
@@ -47,7 +47,7 @@ const Card = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/allTasks");
+      const response = await axios.get("https://abchotelbackend.onrender.com/allTasks");
       setTasks(response.data);
       //debugger
       //console.log(response.data)
@@ -59,7 +59,7 @@ const Card = () => {
  
 
   return (
-    <div className="col-sm-12 col-lg-4" style={gridStyle}>
+    <div className="row">
       {tasks.map((task) => {
         return  <MainCard
         taskId={task._id}

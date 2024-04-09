@@ -11,7 +11,7 @@ const Scheduled = () => {
     React.useEffect(()=>{
         (async()=>{
             try {
-                const data = await axios.get("http://localhost:8000/filterScheduled");
+                const data = await axios.get("https://abchotelbackend.onrender.com/filterScheduled");
                 //let jsonData=await data;
                 setData(data.data);
               } catch (error) {
@@ -21,7 +21,7 @@ const Scheduled = () => {
     },[])
     
   return (
-    <div className="col-sm-12 col-lg-4" style={gridStyle}>
+    <div className="row center">
       {!!data?.length &&  data.map((task) => {
         return  <MainCard
         taskId={task._id}

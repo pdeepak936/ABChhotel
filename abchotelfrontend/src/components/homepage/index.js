@@ -20,7 +20,7 @@ const Home = () => {
     <div className="container-flex">
       <div className="row">
         <div className="col">
-          <div className="d-md-block d-lg-block d-sm-none">
+          <div className="d-md-none d-sm-none d-lg-block">
             <Header />
           </div>
         </div>
@@ -29,15 +29,15 @@ const Home = () => {
         <div className="col">
           <div className="d-flex">
             <div
-              className="col-lg-2 col-md-2 col-sm-0"
+              className="d-md-none d-sm-none d-lg-block col-lg-2 col-md-2 col-sm-0"
               style={{ height: "100%" }}
             >
               <Sidebar />
             </div>
-            <div className="main-page col-lg-9 col-md-9 col-sm-12">
+            <div className="main-page col-lg-9 col-md-9 col-sm-12" style={{ height: "90%" }}>
               <h2 className="task-title">Task of the day</h2>
               <nav className="all_task">
-                <NavLink className="all_task_tab" to="notaccepted">
+                <NavLink className="all_task_tab " to="notaccepted">
                   Not Accepted
                 </NavLink>
                 <Link className="all_task_tab" to="ongoing">
@@ -68,23 +68,13 @@ const Home = () => {
                 <Route path="/taskform" element={<Form />} />
                 <Route path="/form" element={<></>} />
               </Routes>
-
-              {/* <div>
-            <div className="">
-              <div className="card-wrapper">
-                <div className="row">
-                    <Card />
-                </div>
-              </div>
-            </div>
-          </div> */}
             </div>
           </div>
         </div>
       </div>
-      <div className="row">
+      <div className="footer-container row  mb-5 bg-white">
         <div className="col">
-          <div className="footer-container d-sm-block d-md-none d-lg-none align-items-end">
+          <div className=" d-md-none d-lg-none">
             <Footer />
           </div>
         </div>

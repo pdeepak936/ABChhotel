@@ -10,6 +10,7 @@ import AutoGraphOutlinedIcon from "@mui/icons-material/AutoGraphOutlined";
 import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
 import { sideTitleStyle } from "../../helper";
 
+
 const Sidebar = () => {
   return (
     <nav class="navbar navbar-expand-lg navbar-light bg-light desplaynone" 
@@ -29,9 +30,9 @@ const Sidebar = () => {
         <div class="navbar-nav flex-column" style={{ width: "100%", height: "100%" }}>
         <div  style={{ backgroundColor: "#F0F0F0", display: "flex", alignItems: "center", margin: "0", padding: "0" }}>
     <HomeOutlinedIcon style={{ marginRight: "5px" , marginLeft: "10px"}} />
-    <a className="nav-item nav-link active" href="#">
+    <Link className="nav-item nav-link active" to="/">
       <h3  style={{...sideTitleStyle}}>Home</h3>
-    </a>
+    </Link>
   </div>
   <hr style={{ color: "#DC5B19", height: "10px", margin: "0" , padding: "0"}}/>
 

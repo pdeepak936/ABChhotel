@@ -41,51 +41,53 @@ const Card = (props) => {
 
 
   const [modalIsOpen, setIsOpen] = useState(false);
-  // const [selectedTask, setSelectedTask] = useState(null);
-  // const [stat, setStat] = useState("");
-  // //const [status, setStatus] = useState('');
+  const [selectedTask, setSelectedTask] = useState(null);
+  const [stat, setStat] = useState("");
+  //const [status, setStatus] = useState('');
 
   // function openModal() {
   //   setIsOpen(true);
   // }
 
-  // // function afterOpenModal() {
-  // //   // references are now sync'd and can be accessed.
-  // //   subtitle.style.color = '#f00';
-  // // }
+  // function afterOpenModal() {
+  //   // references are now sync'd and can be accessed.
+  //   subtitle.style.color = '#f00';
+  // }
 
-  // const openModal = (task) => {
-  //   setSelectedTask(task);
-  //   setIsOpen(true);
-  // };
+  const openModal = (task) => {
+    setSelectedTask(task);
+    setIsOpen(true);
+  };
 
-  // const handleSubmit = async (taskId, status) => {
-  //   try {
-  //     const data = await axios.put("http://localhost:8000/update", {
-  //       id: taskId,
-  //       status: status,
-  //     });
-  //     console.log("status is",status);
-  //     setIsOpen(false);
-  //   } catch (error) {
-  //     console.error("Error updating status:", error);
-  //   }
-  // };
-
-  const handleNotify = async (id) => {
+  const handleSubmit = async (taskId, stat) => {
     try {
-      await axios.post("http://localhost:8000/notify", {
-        id: id,
+      const data = await axios.put("https://abchotelbackend.onrender.com/update", {
+        id: taskId,
+        status: stat,
       });
+      console.log("status is",stat);
       setIsOpen(false);
+      window.location.reload();
     } catch (error) {
       console.error("Error updating status:", error);
     }
   };
 
-  // const closeModal = () => {
-  //   setIsOpen(false);
-  // };
+  const handleNotify = async (taskId) => {
+    try {
+      await axios.post("https://abchotelbackend.onrender.com/notify", {
+        id: taskId,
+      });
+      setIsOpen(false);
+      window.location.reload();
+    } catch (error) {
+      console.error("Error updating status:", error);
+    }
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+  };
 
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -95,7 +97,7 @@ const Card = (props) => {
     }-${date.getFullYear()} | ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
   };
   return (
-    // <div className="col-sm-12 col-lg-4">
+    <div className="col-sm-12 col-lg-4 col-md-6">
           <div className="card_container m-4 rounded" key={taskId}>
             <div className="d-flex justify-content-between rounded" style={{alignItems: "center"}}>
               <div
@@ -125,7 +127,7 @@ const Card = (props) => {
                 <Circle />
               </div>
               <span
-                // onClick={() => openModal(task)}
+                onClick={() => openModal()}
                 style={{
                   color: "#CC2610",
                   font: "Montserrat",
@@ -275,7 +277,7 @@ const Card = (props) => {
                   lineHeight: "15px",
                   fontStyle: "normal",
                 }}
-                onClick={() => handleNotify(task._id)}
+                onClick={() => handleNotify(taskId)}
               >
                 {" "}
                 <span>
@@ -285,7 +287,7 @@ const Card = (props) => {
                 Notify Staff
               </button>
             </div>
-            {/* <Modal
+            <Modal
               isOpen={modalIsOpen}
               onRequestClose={closeModal}
               style={customStyles}
@@ -298,7 +300,7 @@ const Card = (props) => {
                     id="inputState"
                     className="form-control"
                     name="status"
-                    onChange={(e) =>{}}
+                    onChange={(e) => setStat(e.target.value)}
                   >
                     <option value="">Choose...</option>
                     <option value="Not Accepted">Not Accepted</option>
@@ -311,7 +313,7 @@ const Card = (props) => {
                 </div>
                 <button
                   type="button"
-                  onClick={() => handleSubmit(taskId, status)}
+                  onClick={() => handleSubmit(taskId, stat)}
                 >
                   Submit
                 </button>
@@ -319,9 +321,9 @@ const Card = (props) => {
                   Close
                 </button>
               </form>
-            </Modal> */}
+            </Modal>
           </div>
-        // </div>
+        </div>
   );
 };
 
